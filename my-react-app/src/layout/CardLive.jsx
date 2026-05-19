@@ -1,64 +1,78 @@
-import poloImgTop from '/src/assets/all5.jpg';   // gambar atas
-import poloImg from '/src/assets/all4.jpg';      // gambar utama (tengah)
-import poloImgBottom from '/src/assets/all3.jpg';// gambar bawah
-import shirtImg from '/src/assets/all2.jpg';     // gambar kanan
-// import DecorationElements from '../ui/DecorationElement'; // Impor komponen DecorationElements
+import poloImgTop from "/src/assets/all5.jpg";
+import poloImg from "/src/assets/all4.jpg";
+import poloImgBottom from "/src/assets/all3.jpg";
+import shirtImg from "/src/assets/all2.jpg";
+
+// import DecorationElements from "../ui/DecorationElement";
 
 export default function HeroCollection() {
   return (
-    <section className="w-full flex flex-col md:flex-row justify-center items-center gap-0 py-20 px-4 relative overflow-hidden bg-white h-screen">
-      {/* === Blok Polo === */}
+    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white px-4 py-20 md:flex-row md:gap-6">
+      
+      {/* Decoration */}
       {/* <DecorationElements /> */}
-      <div className="w-full md:w-1/2 flex justify-center relative">
-        <div className="grid grid-cols-2 gap-4 w-full">
+
+      {/* Left Collection */}
+      <div className="relative flex w-full justify-center md:w-1/2">
+        
+        <div className="grid w-full grid-cols-2 gap-4">
+          
           <img
             src={poloImgTop}
             alt="Polo Top"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={poloImg}
             alt="Polo Main"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={poloImgBottom}
             alt="Polo Bottom"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={shirtImg}
             alt="Shirt Collection"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
         </div>
       </div>
 
-      {/* Garis Pemisah */}
-      <div className="hidden md:block w-px bg-white h-full"></div>
+      {/* Divider */}
+      <div className="hidden h-full w-px bg-gray-200 md:block"></div>
 
-      {/* === Blok Shirt === */}
-      <div className="w-full md:w-1/2 flex justify-center relative">
-        <div className="grid grid-cols-2 gap-4 w-full">
+      {/* Right Collection */}
+      <div className="relative mt-6 flex w-full justify-center md:mt-0 md:w-1/2">
+        
+        <div className="grid w-full grid-cols-2 gap-4">
+          
           <img
             src={poloImg}
             alt="Polo Collection"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={poloImgTop}
             alt="Polo Top"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={shirtImg}
             alt="Shirt Collection"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
+
           <img
             src={poloImgBottom}
             alt="Polo Bottom"
-            className="w-full h-auto object-cover rounded-lg"
+            className="h-auto w-full rounded-lg object-cover"
           />
         </div>
       </div>

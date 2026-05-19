@@ -1,47 +1,58 @@
 // src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import SocialFloatingButton from './components/SocialFloatingButton';
-import Galleri from './pages/Galleri'; 
-import NotFound from './components/NotFound'; // Jika Anda ingin menambahkannya kembali
-import AboutUsPage from './pages/AboutUs';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import LandingPage from "./pages/LandingPage";
+import Galleri from "./pages/Galleri";
+import AboutUsPage from "./pages/AboutUs"; 
+
+import SocialFloatingButton from "./components/SocialFloatingButton";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <Router>
       <div className="relative">
         <Routes>
-          <Route 
-            path="/" 
+          
+          {/* Home */}
+          <Route
+            path="/"
             element={
               <>
                 <LandingPage />
                 <SocialFloatingButton />
               </>
-            } 
+            }
           />
-          <Route 
-            path="/galleri" 
+
+          {/* Galleri */}
+          <Route
+            path="/galleri"
             element={
               <>
                 <Galleri />
                 <SocialFloatingButton />
               </>
-            } 
+            }
           />
-          <Route 
-            path="/manish" 
+
+          {/* Manish */}
+          <Route
+            path="/manish"
             element={
               <>
                 <LandingPage />
                 <SocialFloatingButton />
               </>
-            }  // Menambahkan rute untuk /manish
+            }
           />
-{/* 
-          <Route path="/about" element={<AboutUsPage />} /> Menambahkan rute untuk /about */}
-          <Route path="*" element={<NotFound />} /> {/* Menambahkan kembali rute NotFound */}
+
+          {/* About */}
+          {/* <Route path="/about" element={<AboutUsPage />} /> */}
+
+          {/* Not Found */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>

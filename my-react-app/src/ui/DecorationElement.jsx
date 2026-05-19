@@ -1,6 +1,5 @@
-// src/ui/DecorationElements.jsx
 
-import React from 'react';
+import React from "react";
 
 const DecorationElements = () => {
   return (

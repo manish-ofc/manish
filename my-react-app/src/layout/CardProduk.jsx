@@ -1,41 +1,38 @@
-import React, { useState } from 'react';
-// import { FaArrowLeft, FaShoppingCart } from 'react-icons/fa';
+import React, { useState } from "react";
+
+// import { FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 
 const colorOptions = [
   {
-    color: '#034880ff',
+    color: "#034880ff",
     images: [
-      // 'src/assets/cardproduklanding/poloblue.jpg',
-      './src/assets/cardproduklanding/poloblue1.jpg',
-      './src/assets/cardproduklanding/poloblue2.jpg',
-      './src/assets/cardproduklanding/poloblue3.jpg',
+      "./src/assets/cardproduklanding/poloblue1.jpg",
+      "./src/assets/cardproduklanding/poloblue2.jpg",
+      "./src/assets/cardproduklanding/poloblue3.jpg",
     ],
   },
   {
-    color: '#c09382ff',
+    color: "#c09382ff",
     images: [
-      // 'src/assets/cardproduklanding/poloblue.jpg',
-      './src/assets/cardproduklanding/polobrown1.jpg',
-      './src/assets/cardproduklanding/polobrown2.jpg',
-      './src/assets/cardproduklanding/polobrown1.jpg',
+      "./src/assets/cardproduklanding/polobrown1.jpg",
+      "./src/assets/cardproduklanding/polobrown2.jpg",
+      "./src/assets/cardproduklanding/polobrown1.jpg",
     ],
   },
   {
-    color: '#ce5128ff',
+    color: "#ce5128ff",
     images: [
-      // 'src/assets/cardproduklanding/poloblue.jpg',
-      './src/assets/cardproduklanding/polobata1.jpg',
-      './src/assets/cardproduklanding/polobata2.jpg',
-      './src/assets/cardproduklanding/polobata3.jpg',
+      "./src/assets/cardproduklanding/polobata1.jpg",
+      "./src/assets/cardproduklanding/polobata2.jpg",
+      "./src/assets/cardproduklanding/polobata3.jpg",
     ],
   },
   {
-    color: '#267c3bff',
+    color: "#267c3bff",
     images: [
-      // 'src/assets/cardproduklanding/poloblue.jpg',
-      'src/assets/cardproduklanding/poloolive1.jpg',
-      'src/assets/cardproduklanding/poloolive2.jpg',
-      'src/assets/cardproduklanding/poloolive1.jpg',
+      "./src/assets/cardproduklanding/poloolive1.jpg",
+      "./src/assets/cardproduklanding/poloolive2.jpg",
+      "./src/assets/cardproduklanding/poloolive1.jpg",
     ],
   },
 ];
@@ -48,46 +45,58 @@ const CardProduct = () => {
   const currentImage = selectedImages[selectedImageIndex];
 
   return (
-    <div className="relative flex justify-center items-start pt-10 px-4 md:px-10 min-h-screen overflow-hidden ">
-      {/* Dekorasi */}
-      <div className="absolute top-8 left-8 w-32 h-1 bg-black rotate-45 opacity-40"></div>
-      <div className="absolute bottom-8 right-8 w-32 h-1 bg-amber-700 -rotate-45 opacity-50"></div>
-      <div className="absolute top-20 right-12 w-24 h-1 bg-black rotate-12 opacity-40"></div>
-      <div className="absolute bottom-20 left-12 w-24 h-1 bg-amber-700 -rotate-12 opacity-50"></div>
-      <div className="absolute top-1/3 left-4 w-12 h-12 border-[3px] border-black rounded-full opacity-40"></div>
-      <div className="absolute bottom-1/3 right-4 w-16 h-16 border-[3px] border-amber-700 rounded-full opacity-50"></div>
+    <div className="relative flex min-h-screen items-start justify-center overflow-hidden px-4 pt-10 md:px-10">
+      
+      {/* Decoration */}
+      <div className="absolute top-8 left-8 h-1 w-32 rotate-45 bg-black opacity-40"></div>
 
-      {/* Card */}
-      <div className="max-w-3xl bg-white rounded-xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-10 z-10 w-full">
-        {/* Gambar */}
+      <div className="absolute bottom-8 right-8 h-1 w-32 -rotate-45 bg-amber-700 opacity-50"></div>
+
+      <div className="absolute top-20 right-12 h-1 w-24 rotate-12 bg-black opacity-40"></div>
+
+      <div className="absolute bottom-20 left-12 h-1 w-24 -rotate-12 bg-amber-700 opacity-50"></div>
+
+      <div className="absolute top-1/3 left-4 h-12 w-12 rounded-full border-[3px] border-black opacity-40"></div>
+
+      <div className="absolute bottom-1/3 right-4 h-16 w-16 rounded-full border-[3px] border-amber-700 opacity-50"></div>
+
+      {/* Product Card */}
+      <div className="z-10 flex w-full max-w-3xl flex-col items-center gap-10 rounded-xl bg-white p-6 shadow-2xl md:flex-row md:p-10">
+        
+        {/* Product Image */}
         <div className="relative w-full md:w-1/2">
-          {/* <div className="absolute top-4 left-4 text-white bg-[#5d4037] p-3 rounded-full cursor-pointer z-20">
-            <FaArrowLeft />
-          </div> */}
-
+          
+          {/* Product Main Image */}
           <img
             src={currentImage}
             alt="Product"
-            className="rounded-xl object-cover w-full h-auto max-h-[400px]"
+            className="h-auto max-h-[400px] w-full rounded-xl object-cover"
           />
 
-          {/* Thumbnail */}
-          <div className="flex justify-center mt-6 gap-3 flex-wrap relative z-30">
+          {/* Thumbnail Images */}
+          <div className="relative z-30 mt-6 flex flex-wrap justify-center gap-3">
+            
             {selectedImages.map((img, index) => (
-              <div key={index} className="relative group">
+              <div key={index} className="group relative">
+                
                 <img
                   src={img}
                   alt={`thumb-${index}`}
                   onClick={() => setSelectedImageIndex(index)}
-                  className={`w-16 h-16 md:w-20 md:h-20 border rounded-md object-cover cursor-pointer transition duration-300 ${
-                    selectedImageIndex === index ? 'ring-2 ring-[#5d4037]' : ''
+                  className={`h-16 w-16 cursor-pointer rounded-md border object-cover transition duration-300 md:h-20 md:w-20 ${
+                    selectedImageIndex === index
+                      ? "ring-2 ring-[#5d4037]"
+                      : ""
                   }`}
                 />
-                <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom z-50">
+
+                {/* Hover Preview */}
+                <div className="absolute bottom-full left-1/2 z-50 mb-2 origin-bottom -translate-x-1/2 scale-0 transform transition-transform duration-300 group-hover:scale-100">
+                  
                   <img
                     src={img}
                     alt={`thumb-preview-${index}`}
-                    className="w-40 h-40 object-cover rounded-md shadow-xl border border-gray-300"
+                    className="h-40 w-40 rounded-md border border-gray-300 object-cover shadow-xl"
                   />
                 </div>
               </div>
@@ -95,46 +104,69 @@ const CardProduct = () => {
           </div>
         </div>
 
-        {/* Info */}
-       <div className="w-full md:w-1/2 md:mt-[-100px] ">
-  <h2 className="text-2xl md:text-3xl font-bold text-[#4e342e] font-poppins">Manish Collection</h2>
-  <h3 className="text-md md:text-lg font-semibold text-[#4e342e] font-poppins">Polo Session</h3>
+        {/* Product Information */}
+        <div className="w-full md:mt-[-100px] md:w-1/2">
+          
+          <h2 className="font-poppins text-2xl font-bold text-[#4e342e] md:text-3xl">
+            Manish Collection
+          </h2>
 
-  <p className="text-xl text-[#6d4c41] font-bold mt-4 font-poppins">Rp 79.300</p>
+          <h3 className="font-poppins text-md font-semibold text-[#4e342e] md:text-lg">
+            Polo Session
+          </h3>
 
-  <div className="mt-6">
-    <p className="text-[#4e342e] text-sm font-semibold">PILIH WARNA</p>
-    <div className="flex gap-3 flex-wrap mt-3">
-      {colorOptions.map((opt, idx) => (
-        <div
-          key={idx}
-          className={`w-7 h-7 rounded-full border-2 cursor-pointer transition-transform duration-200 ${
-            selectedColorIndex === idx ? 'border-black scale-110' : 'border-gray-300'
-          }`}
-          style={{ backgroundColor: opt.color }}
-          onClick={() => {
-            setSelectedColorIndex(idx);
-            setSelectedImageIndex(0);
-          }}
-        />
-      ))}
-    </div>
-  </div>
+          {/* Price */}
+          <p className="mt-4 font-poppins text-xl font-bold text-[#6d4c41]">
+            Rp 79.300
+          </p>
 
-  <div className="mt-6">
-    <p className="text-sm text-[#5d4037] font-semibold mb-2 uppercase font-poppins">Deskripsi</p>
-    <ul className="text-gray-700 list-disc pl-4 text-xs md:text-sm space-y-1 font-poppins text-justify">
-      <li>Material: 100% cotton</li>
-      <li>Fit: Regular</li>
-      <li>Care: Machine wash</li>
-    </ul>
-  </div>
+          {/* Color Picker */}
+          <div className="mt-6">
+            
+            <p className="text-sm font-semibold text-[#4e342e]">
+              PILIH WARNA
+            </p>
 
+            <div className="mt-3 flex flex-wrap gap-3">
+              
+              {colorOptions.map((opt, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => {
+                    setSelectedColorIndex(idx);
+                    setSelectedImageIndex(0);
+                  }}
+                  style={{ backgroundColor: opt.color }}
+                  className={`h-7 w-7 cursor-pointer rounded-full border-2 transition-transform duration-200 ${
+                    selectedColorIndex === idx
+                      ? "scale-110 border-black"
+                      : "border-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
 
-          {/* Icon Keranjang */}
-          {/* <button className="mt-8 text-[#5d4037] hover:scale-110 transition-transform duration-200">
+          {/* Description */}
+          <div className="mt-6">
+            
+            <p className="mb-2 font-poppins text-sm font-semibold uppercase text-[#5d4037]">
+              Deskripsi
+            </p>
+
+            <ul className="list-disc space-y-1 pl-4 text-justify font-poppins text-xs text-gray-700 md:text-sm">
+              <li>Material: 100% cotton</li>
+              <li>Fit: Regular</li>
+              <li>Care: Machine wash</li>
+            </ul>
+          </div>
+
+          {/* Cart Button */}
+          {/*
+          <button className="mt-8 text-[#5d4037] transition-transform duration-200 hover:scale-110">
             <FaShoppingCart size={32} />
-          </button> */}
+          </button>
+          */}
         </div>
       </div>
     </div>

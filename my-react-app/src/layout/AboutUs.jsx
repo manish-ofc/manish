@@ -1,62 +1,110 @@
-import React from "react";
-import aboutImg from "../assets/all1.jpg"; // Gunakan gambar yang sama
-// import logomanish from "../assets/manish.jpg"; // Ganti dengan logo yang sesuai
+import {
+  Lock,
+  Database,
+  Server,
+  Shuffle,
+} from "lucide-react";
+
+import phoneimage from "../assets/phone.jpg";
 
 export default function AboutUs() {
   return (
-    <section className="w-full">
-      {/* Top Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="bg-amber-800 flex items-center justify-center text-white p-8 text-center">
-          <div>
-            <h2 className="text-xl md:text-2xl font-semibold">Welcome to Our Brand</h2>
-            <p className="mt-2 text-base md:text-lg">
-              A place to find comfort and confidence in what you wear every day.
-            </p>
-          </div>
-        </div>
-        <div className="h-72 md:h-auto">
-          <img src={aboutImg} alt="About Top" className="w-full h-full object-cover" />
-        </div>
+    <section className="bg-white px-6 py-16 md:px-20">
+      
+      {/* Heading */}
+      <div className="mb-12">
+        
+        <p className="text-sm font-semibold text-blue-600">
+          About Our App
+        </p>
+
+        <h2 className="mt-2 text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
+          A new way to manage
+          <br />
+          your online money.
+        </h2>
       </div>
 
-      {/* Middle Row */}
-      <div className="flex flex-col md:flex-row h-full">
-        <div className="flex flex-col md:flex-row w-full">
-          <div className="bg-teal-600 flex justify-center items-center p-10 text-white font-bold text-3xl tracking-wide w-full md:w-1/3">
-            About Us
-          </div>
+      {/* Content Grid */}
+      <div className="grid gap-12 md:grid-cols-2">
+        
+        {/* Features */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          
+          <FeatureCard
+            icon={<Lock className="h-6 w-6 text-white" />}
+            title="Security Maintenance"
+            description="The little rotter bevvy I gormless mush golly gosh cras."
+            bg="bg-blue-500"
+          />
 
-          <div className="bg-gray-100 p-10 text-gray-800 text-base md:text-lg leading-relaxed w-full md:w-1/3 flex items-center justify-center">
-            <div>
-              <p>
-                Sejak 2023, brand kami hadir untuk mendukung setiap individu yang ingin tampil nyaman dan percaya diri. Kami percaya bahwa pakaian bukan hanya soal gaya, tapi juga identitas dan ekspresi diri.
-              </p>
-              <p className="mt-4">
-                Melalui koleksi kami yang terus berkembang, kami berkomitmen menghadirkan produk dengan kualitas terbaik, desain yang thoughtful, dan nilai keberlanjutan. Produk kami terinspirasi dari kebutuhan sehari-hari—simpel, fungsional, dan penuh makna.
-              </p>
-            </div>
-          </div>
+          <FeatureCard
+            icon={<Database className="h-6 w-6 text-white" />}
+            title="Backup Database"
+            description="The little rotter bevvy I gormless mush golly gosh cras."
+            bg="bg-yellow-400"
+          />
 
-          <div className="bg-gray-300 p-10 text-gray-700 text-base md:text-lg leading-relaxed w-full md:w-1/3 flex items-center justify-center">
-            <p className="max-w-md">
-              {/* Optional additional content here */}
-            </p>
-          </div>
+          <FeatureCard
+            icon={<Server className="h-6 w-6 text-white" />}
+            title="Server Maintenance"
+            description="The little rotter bevvy I gormless mush golly gosh cras."
+            bg="bg-purple-400"
+          />
+
+          <FeatureCard
+            icon={<Shuffle className="h-6 w-6 text-white" />}
+            title="No Risk Protectable"
+            description="The little rotter bevvy I gormless mush golly gosh cras."
+            bg="bg-green-400"
+          />
         </div>
-      </div>
 
-      {/* Bottom Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="h-72 md:h-auto order-2 md:order-1">
-          <img src={aboutImg} alt="About Bottom" className="w-full h-full object-cover" />
-        </div>
-        <div className="bg-blue-900 flex items-center justify-center p-10 text-white text-center order-1 md:order-2">
-          <p className="max-w-md text-base md:text-lg">
-            Kami ingin mendorong setiap orang agar berani menunjukkan siapa dirinya, mengenakan apa yang membuatnya merasa baik, dan terus bertumbuh bersama komunitas kami.
-          </p>
+        {/* Phone Mockup */}
+        <div className="relative flex items-center justify-center">
+          
+          <img
+            src={phoneimage}
+            alt="App Preview"
+            className="relative w-full max-w-xs rounded-2xl object-cover shadow-xl"
+          />
+
+          {/* Optional Overlay Image */}
+          {/*
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src=""
+              alt="Hero"
+              className="max-h-full max-w-full rounded-lg object-cover"
+            />
+          </div>
+          */}
         </div>
       </div>
     </section>
+  );
+}
+
+function FeatureCard({ icon, title, description, bg }) {
+  return (
+    <div className="flex items-start space-x-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition duration-300 hover:shadow-md">
+      
+      {/* Icon */}
+      <div className={`rounded-xl p-3 ${bg}`}>
+        {icon}
+      </div>
+
+      {/* Text */}
+      <div>
+        
+        <h4 className="text-base font-semibold text-gray-900">
+          {title}
+        </h4>
+
+        <p className="mt-1 text-sm text-gray-600">
+          {description}
+        </p>
+      </div>
+    </div>
   );
 }
